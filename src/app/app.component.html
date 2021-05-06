@@ -1,0 +1,15 @@
+<div fxLayout="row nowrap" fxLayoutAlign="space-evenly" class="fun-row">
+    <div><button mat-fab [disabled]="funMeter==2" (click)="addFunTimes(2)"><mat-icon>local_fire_department</mat-icon></button></div>
+    <div><button mat-fab [disabled]="funMeter==4" (click)="addFunTimes(4)"><mat-icon>golf_course</mat-icon></button></div>
+    <div><button mat-fab [disabled]="funMeter==6" (click)="addFunTimes(6)"><mat-icon>local_bar</mat-icon></button></div>
+    <div><button mat-fab [disabled]="funMeter==8" (click)="addFunTimes(8)"><mat-icon>code</mat-icon></button></div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+    <div [class.fun-message-red]="funLevel.level <= 1">{{funLevel.message}}</div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center" class="fun-row">
+    <timed-meter [meter]="funMeter" (currentValue)=setFunLevel($event)></timed-meter>
+</div>
+<div fxLayout="row" fxLayoutAlign="center" class="fun-row">
+    <mat-icon class="matt-icon">{{funLevel.icon}}</mat-icon>
+</div>

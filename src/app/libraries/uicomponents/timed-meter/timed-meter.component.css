@@ -1,0 +1,14 @@
+.meter-container {
+    display: block;
+}
+.meter-item {
+    width: 150px;
+    height: 2px;
+    max-height: 2px;
+    border: blue 1px solid;
+    padding: 4px;
+    margin: 5px;
+}
+.meter-item-full {
+    background-color: darkblue;
+}
