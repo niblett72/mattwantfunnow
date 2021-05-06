@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './timed-meter.component.html',
   styleUrls: ['./timed-meter.component.css']
 })
-export class TimedMeterComponent implements OnInit {
+export class TimedMeterComponent {
     meterScaleUpperLimit = 20;
     meterScale: number = 0;
     timeScale: number = 1000;
@@ -18,8 +18,6 @@ export class TimedMeterComponent implements OnInit {
     }
     @Output() currentValue: EventEmitter<number> = new EventEmitter();
     constructor() { }
-    ngOnInit(): void {
-    }
     runTimedMeter() {
         this.meterRunning = true;
         setTimeout(() => {
