@@ -1,14 +1,40 @@
 .meter-container {
     display: block;
 }
+.meter-empty {
+    animation: pulse .5s infinite;
+  }
+@keyframes pulse {
+    0% {
+        border-color: lightgray;
+    }
+    100% {
+        border-color: darkred;
+    }
+}
+  
 .meter-item {
-    width: 150px;
+    width: 10px;
     height: 2px;
     max-height: 2px;
-    border: blue 1px solid;
-    padding: 4px;
-    margin: 5px;
+    border: lightgray 1px solid;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 2px;
 }
 .meter-item-full {
     background-color: darkblue;
+}
+.meter-level-4 {
+    background-color: green;
+}
+.meter-level-3 {
+    /* background-color: rgb(115, 156, 0); */
+    background-color: lime;
+}
+.meter-level-2 {
+    background-color: darkorange;
+}
+.meter-level-1 {
+    background-color: red;
 }

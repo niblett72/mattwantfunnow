@@ -1,15 +1,22 @@
+<div fxLayout="row" fxLayoutAlign="center" class="fun-row">
+    <div>Don't let the party end!</div>
+</div>
 <div fxLayout="row nowrap" fxLayoutAlign="space-evenly" class="fun-row">
-    <div><button mat-fab [disabled]="funMeter==2" (click)="addFunTimes(2)"><mat-icon>local_fire_department</mat-icon></button></div>
-    <div><button mat-fab [disabled]="funMeter==4" (click)="addFunTimes(4)"><mat-icon>golf_course</mat-icon></button></div>
-    <div><button mat-fab [disabled]="funMeter==6" (click)="addFunTimes(6)"><mat-icon>local_bar</mat-icon></button></div>
-    <div><button mat-fab [disabled]="funMeter==8" (click)="addFunTimes(8)"><mat-icon>code</mat-icon></button></div>
+    <div><button mat-fab [disabled]="funTimes==2" (click)="addFunTimes(2)"><mat-icon>local_fire_department</mat-icon></button><span>fire (2)</span></div>
+    <div><button mat-fab [disabled]="funTimes==4" (click)="addFunTimes(4)"><mat-icon>golf_course</mat-icon></button><span>golf (4)</span></div>
+    <div><button mat-fab [disabled]="funTimes==6" (click)="addFunTimes(6)"><mat-icon>local_bar</mat-icon></button><span>drink (6)</span></div>
+    <div><button mat-fab [disabled]="funTimes==8" (click)="addFunTimes(8)"><mat-icon>code</mat-icon></button><span>code (8)</span></div>
 </div>
 <div fxLayout="row" fxLayoutAlign="center">
-    <div [class.fun-message-red]="funLevel.level <= 1">{{funLevel.message}}</div>
+    <div fxLayout="row nowrap"  class="fun-row">
+        <div fxFlex="1 2 5%">
+            <timed-meter [add]="funTimes" (currentValue)=setFunLevel($event)></timed-meter>
+        </div>
+        <div fxFlex="1 2 95%">
+            <img [src]="funLevel.image" class="matt-image" />
+        </div>
+    </div>
 </div>
-<div fxLayout="row" fxLayoutAlign="center" class="fun-row">
-    <timed-meter [meter]="funMeter" (currentValue)=setFunLevel($event)></timed-meter>
-</div>
-<div fxLayout="row" fxLayoutAlign="center" class="fun-row">
-    <mat-icon class="matt-icon">{{funLevel.icon}}</mat-icon>
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="funLevel.level==0">
+    {{funLevel.message}}
 </div>
