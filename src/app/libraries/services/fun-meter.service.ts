@@ -13,6 +13,9 @@ export interface IfunMeter {
 })
 export class FunMeterService {
     constructor() {}
+    getAllScales(): number[] {
+        return Array.from({length: 20}, (_, i) => i + 1).sort((a, b) => b - a);
+    }
     getFunMeters(): IfunMeter[] {
         return [{
             level: 4,

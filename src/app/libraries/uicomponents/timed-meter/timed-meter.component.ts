@@ -10,7 +10,7 @@ export class TimedMeterComponent {
     private meterScale: number = 0;
     private timeScale: number = 1000;
     private meterRunning: boolean = false;
-    meterScales: number[] = Array.from({length: 20}, (_, i) => i + 1).sort((a, b) => b - a);
+    meterScales: number[] = this.meterService.getAllScales();
     @Input() set add(val: number) {
         if (val > 0) {
             this.meterScale = this.meterScale + val;
@@ -32,7 +32,7 @@ export class TimedMeterComponent {
             this.currentValue.emit(this.meterScale);
         }, this.timeScale);
     }
-    private getClassForScale(scale: number): string {
+    getClassForScale(scale: number): string {
         let elementMeter: IfunMeter = this.getFunMeterForScale(scale);
         let currentMeter: IfunMeter = this.getFunMeterForScale(this.meterScale);
         let cssBase: string = "meter-item";
