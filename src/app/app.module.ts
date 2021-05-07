@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './libraries/material.module';
 import { UIComponentsModule } from './libraries/uicomponents/uicomponents.module';
+import { FunMeterService } from './libraries/services/fun-meter.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { UIComponentsModule } from './libraries/uicomponents/uicomponents.module
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+      FunMeterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
