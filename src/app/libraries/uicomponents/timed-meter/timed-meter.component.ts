@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { FunMeterService, IfunMeter } from '../../services/fun-meter.service';
 @Component({
   selector: 'timed-meter',
@@ -8,7 +9,7 @@ import { FunMeterService, IfunMeter } from '../../services/fun-meter.service';
 export class TimedMeterComponent {
     private meterScaleUpperLimit = 20;
     private meterScale: number = 0;
-    private timeScale: number = 1000;
+    private timeScale: number = environment.meterSpeed;
     private meterRunning: boolean = false;
     meterScales: number[] = this.meterService.getAllScales();
     @Input() set add(val: number) {
